@@ -34,7 +34,7 @@ function MessagesScreen(props) {
   return (
     <Screen>
       <FlatList
-        style={{ flex: 1, width: "100%", marginTop: 40 }}
+        style={{ width: "100%" }}
         data={msg}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
@@ -42,6 +42,8 @@ function MessagesScreen(props) {
             image={item.image}
             title={item.title}
             description={item.desc}
+            fontWeight="bold"
+            fontSize={15}
             renderRightAction={() => (
               <ListItemDelete onPress={() => handleDelete(item)} />
             )}

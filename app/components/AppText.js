@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-function AppText({ placeholder, label }) {
+function AppText({ placeholder, label = false }) {
   return (
     <View style={{ flex: 1, marginVertical: 10 }}>
       <Text style={[styles.apptext, { color: label.label ? "#111" : "#777" }]}>

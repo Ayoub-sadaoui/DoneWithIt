@@ -9,11 +9,11 @@ import AppErrorMsg from "../components/forms/AppErrorMsg";
 import AppFormField from "../components/forms/AppFormField";
 import SubmitBtn from "../components/forms/SubmitBtn";
 import AppForm from "../components/forms/AppForm";
-import colors from "../config/colors";
 import routes from "../navigation/routes";
 
 function LoginScreen({ navigation }) {
   const validationSchema = Yup.object().shape({
+    name: Yup.string().required().label("Name"),
     email: Yup.string().required().email().label("Email"),
     password: Yup.string().required().min(4).label("Password"),
   });
@@ -21,11 +21,20 @@ function LoginScreen({ navigation }) {
     <Screen>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
       <AppForm
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         onSubmit={(values) => navigation.navigate(routes.LISTINGS, values)}
         validationSchema={validationSchema}
       >
         <View style={styles.form}>
+          <AppFormField
+            name="Name"
+            icon="account"
+            placeholder="Full name"
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="email-address"
+            textContentType="emailAddress"
+          />
           <AppFormField
             name="email"
             icon="email"
@@ -47,7 +56,7 @@ function LoginScreen({ navigation }) {
           />
         </View>
         <View style={styles.btn}>
-          <SubmitBtn title="Login" />
+          <SubmitBtn title="Register" />
         </View>
       </AppForm>
     </Screen>
@@ -68,7 +77,7 @@ const styles = StyleSheet.create({
   btn: {
     height: 100,
     width: "100%",
-    marginTop: 20,
+    marginTop: 80,
   },
 });
 export default LoginScreen;

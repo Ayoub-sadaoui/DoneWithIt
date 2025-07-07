@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     gap: 10,
+    backgroundColor: "#fff",
+    marginTop: 40,
   },
 });
 export default AppForm;

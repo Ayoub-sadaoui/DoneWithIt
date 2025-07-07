@@ -5,7 +5,15 @@ import ListItem from "../components/ListItem";
 
 function ListingDetailsScreen() {
   return (
-    <View style={{ width: "100%", marginTop: 20, gap: 60 }}>
+    <View
+      style={{
+        width: "100%",
+        marginTop: 20,
+        gap: 60,
+        backgroundColor: "#eee",
+        flex: 1,
+      }}
+    >
       <AppCard
         title="Red jacket for sale"
         subtitle="100$"

@@ -18,17 +18,18 @@ function ListItem({
   title,
   description,
   renderRightAction,
-  backgroundColor,
+  backgroundColor = "#fff",
   iconbgcolor,
   size,
   name,
   fontSize,
   fontWeight,
+  onPress,
 }) {
   return (
     <GestureHandlerRootView>
       <Swipeable renderRightActions={renderRightAction}>
-        <TouchableHighlight underlayColor="#fff">
+        <TouchableHighlight underlayColor="#fff" onPress={onPress}>
           <View style={[styles.item, { backgroundColor: backgroundColor }]}>
             {image ? (
               <Image style={styles.image} source={image} />
@@ -54,11 +55,13 @@ function ListItem({
                 </Text>
               )}
             </View>
-            <MaterialCommunityIcons
-              name="chevron-down"
-              size={24}
-              color="#777"
-            />
+            {iconbgcolor && (
+              <MaterialCommunityIcons
+                name="chevron-down"
+                size={24}
+                color="#777"
+              />
+            )}
           </View>
         </TouchableHighlight>
       </Swipeable>
@@ -71,8 +74,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    padding: 15,
-    backgroundColor: colors.light, // To ensure consistent swipe visuals
+    padding: 10,
+    paddingHorizontal: 15,
+    backgroundColor: colors.white, // To ensure consistent swipe visuals
   },
   image: {
     height: 60,
